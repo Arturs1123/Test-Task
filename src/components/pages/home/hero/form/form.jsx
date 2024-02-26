@@ -38,7 +38,7 @@ const Form = () => {
   const onSubmitHandler = async (data) => {
     setFormSuccess(false);
     setFormFailed(false);
-
+    // I think, Here must be for validate for business email, but this function cannot validate inputed email is personal email or business email.
     try {
       yup.string().email().required().validateSync(data.email);
       await fakeSuccessRequest();
@@ -72,7 +72,8 @@ const Form = () => {
             type="email"
             onChange={resetSubmitButton}
           />
-          <div className="py-1.5 pe-1 overflow-hidden rounded-large min-w-[147px]">
+          {/*I think this <div>'s class must be modified like this */}
+          <div className="flex py-1.5 pe-1 overflow-hidden rounded-large justify-end min-w-[147px]">
             {loading ? (
               <InfoIcon theme="primary-blue" content="loading" className="p-2" animation />
             ) : (
