@@ -1,0 +1,45 @@
+@import './fonts.css';
+@import './gradients.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased bg-black text-white;
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto w-full max-w-[1472px] px-0 xl:px-10 md:px-8 sm:px-4;
+  }
+
+  .gap-x-grid {
+    @apply gap-x-10 md:gap-x-8 sm:gap-x-4;
+  }
+}
+
+@layer utilities {
+  /*
+    Handy CSS class to prevent Input background color becomes yellow in Chrome on autofill.
+    Works as well with inputs with transparent background.
+
+    https://stackoverflow.com/questions/2781549/removing-input-background-colour-for-chrome-autocomplete
+  */
+  .remove-autocomplete-styles:-webkit-autofill,
+  .remove-autocomplete-styles:-webkit-autofill:hover,
+  .remove-autocomplete-styles:-webkit-autofill:focus {
+    transition: background-color 5000s;
+  }
+
+  .scrollbar-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+}
